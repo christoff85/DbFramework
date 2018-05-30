@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CAB37A3D-4517-4037-A0BE-7D39AFA3BE3B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DbFramework</RootNamespace>
+    <AssemblyName>DbFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\SingleResultOptions.cs" />
+    <Compile Include="Exceptions\DbServiceException.cs" />
+    <Compile Include="Extensions\DataReaderExtensions.cs" />
+    <Compile Include="Extensions\DataReaderExtensions.GetBoolean.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DataReaderExtensions.GetByte.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DataReaderExtensions.GetDateTime.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DataReaderExtensions.GetDecimal.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DataReaderExtensions.GetDouble.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DataReaderExtensions.GetFloat.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DataReaderExtensions.GetGuid.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DataReaderExtensions.GetInt16.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DataReaderExtensions.GetInt32.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DataReaderExtensions.GetInt64.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DataReaderExtensions.GetString.cs">
+      <DependentUpon>DataReaderExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DbServiceCommandExtensions.cs" />
+    <Compile Include="Extensions\DbServiceLogicExtensions.cs" />
+    <Compile Include="Adapters\DatabaseAdapter.cs" />
+    <Compile Include="Factories\DbService.cs" />
+    <Compile Include="Factories\DbServiceManagerFactory.cs" />
+    <Compile Include="Interfaces\DbOperations\IDbServiceComponent.cs" />
+    <Compile Include="Interfaces\Factories\IDbServiceManagerFactory.cs" />
+    <Compile Include="Interfaces\DbCommands\ICustomHandlerCommand.cs" />
+    <Compile Include="Interfaces\Database\IDatabase.cs" />
+    <Compile Include="Interfaces\DbCommands\IResultExistsCheckCommand.cs" />
+    <Compile Include="Interfaces\DbLogic\IManyResultLogic.cs" />
+    <Compile Include="Interfaces\DbLogic\ISingleResultLogic.cs" />
+    <Compile Include="Interfaces\Invokers\IDbServiceLogicInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\IDbServiceComponentInvoker .cs" />
+    <Compile Include="Interfaces\Invokers\IManyResultCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\INonQueryCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\INonQueryTResultCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\IScalarCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\ICustomHandlerCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\IResultExistsCheckCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\ISingleResultCommandInvoker.cs" />
+    <Compile Include="Invokers\CustomHandlerCommandInvoker.cs" />
+    <Compile Include="Interfaces\Parameters\IDbParameter.cs" />
+    <Compile Include="Interfaces\Invokers\INonQueryCommandInvokerComposite.cs" />
+    <Compile Include="Invokers\DbServiceComponentInvoker.cs" />
+    <Compile Include="Invokers\DbServiceLogicInvoker.cs" />
+    <Compile Include="Invokers\ResultExistsCheckCommandInvoker.cs" />
+    <Compile Include="ServiceCommands\DbServiceCommand.cs" />
+    <Compile Include="ServiceCommands\DbTextCommand.cs" />
+    <Compile Include="Services\DbServiceBuilder.cs" />
+    <Compile Include="ServiceManagers\DbServiceManager.cs" />
+    <Compile Include="ServiceManagers\NoTransactionDbServiceManager.cs" />
+    <Compile Include="Interfaces\ServiceManagers\IDbServiceManager.cs" />
+    <Compile Include="ServiceCommands\DbStoredProcedure.cs" />
+    <Compile Include="Factories\DbFactory.cs" />
+    <Compile Include="Services\DbService.cs" />
+    <Compile Include="ServiceManagers\TransactionDbServiceManager.cs" />
+    <Compile Include="Interfaces\Services\IDbService.cs" />
+    <Compile Include="Interfaces\DbOperations\IDbServiceLogic.cs" />
+    <Compile Include="Invokers\DbServiceCommandInvoker.cs" />
+    <Compile Include="Factories\DbServiceComponentInvokerFactory.cs" />
+    <Compile Include="Interfaces\Parameters\IDbParameters.cs" />
+    <Compile Include="Interfaces\DbOperations\IDbServiceCommand.cs" />
+    <Compile Include="Interfaces\Invokers\IDbServiceCommandInvoker.cs" />
+    <Compile Include="Interfaces\DbCommands\IManyResultCommand.cs" />
+    <Compile Include="Interfaces\DbCommands\INonQueryCommand.cs" />
+    <Compile Include="Interfaces\DbCommands\INonQueryResultCommand.cs" />
+    <Compile Include="Interfaces\DbCommands\IScalarCommand.cs" />
+    <Compile Include="Interfaces\DbCommands\ISingleResultCommand.cs" />
+    <Compile Include="Invokers\ManyResultCommandInvoker.cs" />
+    <Compile Include="Invokers\NonQueryCommandInvokerComposite.cs" />
+    <Compile Include="Parameters\DbParameter.cs" />
+    <Compile Include="Parameters\DbParameters.cs" />
+    <Compile Include="Invokers\ScalarCommandInvoker.cs" />
+    <Compile Include="Invokers\NonQueryResultCommandInvoker.cs" />
+    <Compile Include="Invokers\NonQueryCommandInvoker.cs" />
+    <Compile Include="Invokers\SingleResultCommandInvoker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
