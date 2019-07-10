@@ -1,2 +1,2 @@
 # DbFramework
-Wrapper for Microsoft EnterpriseLibrary for easier database access
+Lightweight, object oriented wrapper around ADO.NET for easier database access

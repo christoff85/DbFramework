@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CAB37A3D-4517-4037-A0BE-7D39AFA3BE3B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DbFramework</RootNamespace>
+    <AssemblyName>DbFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbCommands\IFirstResultOrDefaultCommand.cs" />
+    <Compile Include="DbCommands\IFirstResultCommand.cs" />
+    <Compile Include="DbCommands\ISingleResultOrDefaultCommand.cs" />
+    <Compile Include="BaseDbUtils.cs" />
+    <Compile Include="Factories\DbContextFactory.cs" />
+    <Compile Include="Interfaces\INoTransactionDbContext.cs" />
+    <Compile Include="Interfaces\Factories\IDbContextFactory.cs" />
+    <Compile Include="Interfaces\Providers\IDbConnectionStringProvider.cs" />
+    <Compile Include="Interfaces\Invokers\IFirstResultCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\IFirstResultOrDefaultCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\ISingleResultOrDefaultCommandInvoker.cs" />
+    <Compile Include="DbReader.cs" />
+    <Compile Include="Interfaces\IDbReader.cs" />
+    <Compile Include="Factories\DbManagerFactory.cs" />
+    <Compile Include="Interfaces\Factories\IDbInvokerFactory.cs" />
+    <Compile Include="DbCommands\IDbReaderMapper.cs" />
+    <Compile Include="Interfaces\Factories\IDatabaseFactory.cs" />
+    <Compile Include="Interfaces\Factories\IDbManagerFactory.cs" />
+    <Compile Include="Interfaces\IDbUtils.cs" />
+    <Compile Include="DbCommands\IDoesResultExistCommand.cs" />
+    <Compile Include="Interfaces\Invokers\IManyResultCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\INonQueryCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\INonQueryTResultCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\IScalarCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\IDoesResultExistCommandInvoker.cs" />
+    <Compile Include="Interfaces\Invokers\ISingleResultCommandInvoker.cs" />
+    <Compile Include="Interfaces\IDbParameter.cs" />
+    <Compile Include="DbCommands\INonQueryCommandComposite.cs" />
+    <Compile Include="Invokers\FirstResultOrDefaultCommandInvoker.cs" />
+    <Compile Include="Invokers\DoesResultExistCommandInvoker.cs" />
+    <Compile Include="DbCommands\DbFrameworkCommand.cs" />
+    <Compile Include="DbCommands\DbTextCommand.cs" />
+    <Compile Include="DbContexts\DbContext.cs" />
+    <Compile Include="DbManagers\DbManager.cs" />
+    <Compile Include="Interfaces\IDbContext.cs" />
+    <Compile Include="Interfaces\IDbManager.cs" />
+    <Compile Include="DbManagers\NoTransactionDbManager.cs" />
+    <Compile Include="DbCommands\DbStoredProcedure.cs" />
+    <Compile Include="DbManagers\TransactionDbManager.cs" />
+    <Compile Include="Invokers\DbCommandInvoker.cs" />
+    <Compile Include="Factories\DbInvokerFactory.cs" />
+    <Compile Include="Interfaces\IDbParameters.cs" />
+    <Compile Include="DbCommands\IDbFrameworkCommand.cs" />
+    <Compile Include="Interfaces\Invokers\IDbFrameworkCommandInvoker.cs" />
+    <Compile Include="DbCommands\IManyResultsCommand.cs" />
+    <Compile Include="DbCommands\INonQueryCommand.cs" />
+    <Compile Include="DbCommands\INonQueryResultCommand.cs" />
+    <Compile Include="DbCommands\IScalarCommand.cs" />
+    <Compile Include="DbCommands\ISingleResultCommand.cs" />
+    <Compile Include="Invokers\ManyResultsCommandInvoker.cs" />
+    <Compile Include="DbCommands\NonQueryCommandComposite.cs" />
+    <Compile Include="DbParameter.cs" />
+    <Compile Include="DbParameters.cs" />
+    <Compile Include="Invokers\ScalarCommandInvoker.cs" />
+    <Compile Include="Invokers\NonQueryResultCommandInvoker.cs" />
+    <Compile Include="Invokers\NonQueryCommandInvoker.cs" />
+    <Compile Include="Invokers\FirstResultCommandInvoker.cs" />
+    <Compile Include="Invokers\SingleResultOrDefaultCommandInvoker.cs" />
+    <Compile Include="Invokers\SingleResultCommandInvoker.cs" />
+    <Compile Include="Interfaces\ITransactionDbContext.cs" />
+    <Compile Include="DbContexts\NoTransactionDbContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlDbUtils.cs" />
+    <Compile Include="DbContexts\TransactionDbContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
